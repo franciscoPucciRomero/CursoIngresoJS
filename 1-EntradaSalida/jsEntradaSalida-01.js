@@ -1,8 +1,9 @@
 /*
-Al presionar el  botón, 
-se debe mostrar un mensaje como el siguiente "Esto funciona de maravilla"*/
+ejercicio 1
+Francisco Pucci Romero
+*/
 function mostrar()
 {
-	alert("Hola Chicos");
+	alert("Esto funciona de maravilla");
 }
 
