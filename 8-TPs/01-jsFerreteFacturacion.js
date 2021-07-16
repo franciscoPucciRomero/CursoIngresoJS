@@ -1,10 +1,16 @@
-/*1.	Para el departamento de facturación:
+/*1.
+Trabajo Practico 1
+Francisco Pucci Romero
+Divicion C
+
+Para el departamento de facturación:
 A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
 B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
 C.	ingresar tres precios de productos  y mostrar precio final (más IVA 21%).
 */
 function Sumar () 
-{   let precioUno;
+{   //declaraciones
+    let precioUno;
     let precioDos;
     let precioTres;
     let suma;
@@ -27,15 +33,14 @@ function Sumar ()
     mensajeSalida="El resultado de la suma es: " + suma;
 
     alert(mensajeSalida);
-
-
-
+    
     //txtIdPrecioUno
     //txtIdPrecioDos
 	//txtIdPrecioTres
 }
 function Promedio () 
-{   let precioUno;
+{   //declaraciones
+    let precioUno;
     let precioDos;
     let precioTres;
     let suma;
@@ -52,20 +57,18 @@ function Promedio ()
     precioTres=document.getElementById("txtIdPrecioTres").value;
     precioTres=parseFloat(precioTres);
 
-    //suma
+    //suma y promedio
     suma=precioTres+precioUno+precioDos;
     promedio=suma/3;
 
     //salida
     mensajeSalida="El promedio de los precios es : " + promedio;
 
-    alert(mensajeSalida);
-
-
-	
+    alert(mensajeSalida);	
 }
 function PrecioFinal () 
-{   let precioUno;
+{   //declaraciones
+    let precioUno;
     let precioDos;
     let precioTres;
     let suma;
@@ -83,7 +86,7 @@ function PrecioFinal ()
     precioTres=document.getElementById("txtIdPrecioTres").value;
     precioTres=parseFloat(precioTres);
 
-    //suma
+    //suma + impuestos
     suma=precioTres+precioUno+precioDos;
     iva=((suma/100)*21);
     precioFinal=suma+iva;
@@ -93,8 +96,5 @@ function PrecioFinal ()
     //salida
     mensajeSalida="El precio final es: " + precioFinal;
 
-    alert(mensajeSalida);
-
-
-	
+    alert(mensajeSalida);	
 }

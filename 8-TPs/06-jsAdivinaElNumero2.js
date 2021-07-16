@@ -11,86 +11,154 @@ Más de 10 intentos: “afortunado en el amor!!”.*/
 
 var numeroSecreto; 
 var contadorIntentos;
+var mensajeSalida;
 
 function comenzar()
 {
-	//Genero el número RANDOM entre 1 y 100
-	numeroSecreto=Math.floor(Math.random() * 101);
-	contadorIntentos=0;
-	
-	alert("comienza el juego");
-	
+	//Genero el número RANDOM entre 1 y 100  ---parseo
+	numeroSecreto=Math.floor(Math.random() * 101)+1;
+	numeroSecreto=parseInt(numeroSecreto);
 
+	//inicio intentos
+	contadorIntentos=0;
+
+	//salida 
+	alert("comienza el juego");//no lo pidieron
+
+	//alert(numeroSecreto);
 }
 
 function verificar()
-{
+{	
+	//toma datos
 	numeroIngresado=document.getElementById("txtIdNumero").value;
-	contadorIntentos+=1
+	numeroIngresado=parseInt(numeroIngresado);
 
-  if(numeroIngresado==numeroSecreto)
-  {		
-	
-	  if(contadorIntentos==1)
-	{
-		mensajeSalida="usted es un Psíquico";
-		alert(mensajeSalida);
-	}
+	//aumento contador ysalida del mismo
+	contadorIntentos+=1;
+	document.getElementById("txtIdIntentos").value=contadorIntentos;
 
-	else if (contadorIntentos==2)
+	//ganador y salida
+
+	if(numeroIngresado>100 || numeroIngresado<1)//input invalido
 	{
-		mensajeSalida="excelente percepción";
-		alert(mensajeSalida);
-	}
-	else if (contadorIntentos==3)
-	{
-		mensajeSalida="Esto es suerte";
-		alert(mensajeSalida);
-	}
-	else if (contadorIntentos==4)
-	{
-		mensajeSalida="Excelente técnica";
-		alert(mensajeSalida);
-	}
-	else if (contadorIntentos==5)
-	{
-		mensajeSalida="usted está en la media";
-		alert(mensajeSalida);
-	}
-	else if (contadorIntentos>=6 && contadorIntentos<10)
-	{
-		mensajeSalida="falta técnica";
-		alert(mensajeSalida);
+	  mensajeSalida="numero no valido";
 	}
 	else
 	{
-		mensajeSalida="afortunado en el amor!!";
-		alert(mensajeSalida);
-	}	
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-    
-    alert(mensajeSalida)
-    //contador=0
-    //numeroSecreto=Math.floor(Math.random() * 101);
-  }
-  else if(numeroIngresado>numeroSecreto)
-  {
-
-    mensajeSalida="se pasó…"
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-
-    alert(mensajeSalida);
-  }
-	else
-  {
-    mensajeSalida= "falta…"
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-    alert(mensajeSalida);
-
-  }
-	
+	  if(numeroIngresado==numeroSecreto)
+	  {
+		if(contadorIntentos==1)
+		{
+			mensajeSalida="usted es un Psíquico";
+		}
+		else
+		{
+			if(contadorIntentos==2)
+			{
+				mensajeSalida="excelente percepción";
+			}
+			else
+			{
+				if(contadorIntentos==3)
+				{
+					mensajeSalida="Esto es suerte";
+				}
+				else
+				{
+					if (contadorIntentos==4)
+					{
+						mensajeSalida="Excelente técnica";
+					}
+					else
+					{
+						if(contadorIntentos==5)
+						{
+							mensajeSalida="usted está en la media";
+						}
+						else
+						{
+							if(contadorIntentos>5 && contadorIntentos<11)
+							{
+								mensajeSalida="falta técnica";
+							}
+							else
+							{
+								mensajeSalida="afortunado en el amor!!";
+							}
+						}
+					
+					}
+				}
+			}
+		}
+	  }
+	  else
+	  {
+		if(numeroIngresado>numeroSecreto)
+		{
+		  mensajeSalida="se pasó…";
+		}
+		else//menor
+		{
+		  mensajeSalida="falta…";
+		}
+	  }
+	}
+  //salida
+  alert(mensajeSalida);
 }
+/*
+if(numeroIngresado==numeroSecreto)
+{	
+  if(contadorIntentos==1)
+  {	//asignacion mensaje 
+	  mensajeSalida="usted es un Psíquico";
+  }
+  else if (contadorIntentos==2)
+  {
+	  mensajeSalida="excelente percepción";
+  }
+  else if (contadorIntentos==3)
+  {
+	  mensajeSalida="Esto es suerte";
+  }
+  else if (contadorIntentos==4)
+  {
+	  mensajeSalida="Excelente técnica";
+  }
+  else if (contadorIntentos==5)
+  {
+	  mensajeSalida="usted está en la media";
+  }
+  else if (contadorIntentos>5 && contadorIntentos<11)
+  {
+	  mensajeSalida="falta técnica";
+  }
+  else
+  {
+	  mensajeSalida="afortunado en el amor!!";
+  }	
+  //alert(mensajeSalida)
+  /*para reinicio automatico
+  //contador=0
+  //numeroSecreto=Math.floor(Math.random() * 101)+1;
+  //numeroSecreto=parseInt(numeroSecreto);
+  */
+//numero no valido
+/*else if(numeroIngresado>100 || numeroIngresado<1)//no lo pidieron
+{
+  mensaje="numero no valido";
+}
+//tibio caliente frio
+else if(numeroIngresado>numeroSecreto)
+{
+  mensajeSalida="se pasó…";
+ // alert(mensajeSalida);
+}
+  else 
+{
+  mensajeSalida= "falta…";
+  //alert(mensajeSalida);
+}*/
 	

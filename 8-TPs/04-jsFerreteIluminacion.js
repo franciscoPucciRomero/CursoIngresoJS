@@ -1,4 +1,9 @@
-/*4.	Para el departamento de iluminación:
+/*4.	
+Trabajo Practico 4
+Francisco Pucci Romero
+Divicion C
+
+Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
@@ -9,225 +14,110 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  */
 function CalcularPrecio () 
-{
+{  
+     //declaracion variables
     let cantidadDeLamparas;
     let marcaLamparas;
+    let porcentajeDescuento;
     let precioDescuento;
     let ingresosBrutos;
     let precioMasIngresosBrutos;
     let mensajeSalida;
+    let precioBruto;
+    let descuento;
+    
+    porcentajeDescuento=0;
 
-    //
+    //toma datos
     cantidadDeLamparas=document.getElementById("txtIdCantidad").value;
     cantidadDeLamparas=parseInt(cantidadDeLamparas);
 
     marcaLamparas=document.getElementById("Marca").value;
+    /*posibles marcas
+    ArgentinaLuz    
+    FelipeLamparas
+    JeLuz
+    HazIluminacion
+    Osram
+    */
     //alert(marcaLamparas);
 
-    //punto A
-    if(cantidadDeLamparas>=6)
-    {   
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*50);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-
-    // punto B
-    else if(cantidadDeLamparas==5 && marcaLamparas=="ArgentinaLuz")
+    //clausula if ---aqui definimos cuanto descuento se aplica segun el enunciado
+    if(cantidadDeLamparas>5)//punto A
     {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*40);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-    else if(cantidadDeLamparas==5)
-    {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*30);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-
-    // punto C
-    else if(cantidadDeLamparas==4 && marcaLamparas=="ArgentinaLuz")
- 	{
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*25);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-     }
-    else if(cantidadDeLamparas==4 && marcaLamparas=="FelipeLamparas")
-     {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*25);
-       
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-     }
-     else if(cantidadDeLamparas==4)
-     {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*20);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-     }
-
-     //punto D
-     else if (cantidadDeLamparas==3 && marcaLamparas=="ArgentinaLuz")
-    {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*15);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-    else if (cantidadDeLamparas==3 && marcaLamparas=="FelipeLamparas")
-    {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*10);
-       
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-    else if (cantidadDeLamparas==3)
-    {
-        precioDescuento=(cantidadDeLamparas*35)-(((cantidadDeLamparas*35)/100)*5);
-        
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-
-    //
-    else
-    {
-        precioDescuento=(cantidadDeLamparas*35);
-        if(precioDescuento>120)
-        {
-            ingresosBrutos=(precioDescuento/100)*10;
-            precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-    
-            mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-    
-            document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
-        }
-        else
-        {
-            document.getElementById("txtIdprecioDescuento").value=precioDescuento;
-        }
-    }
-
-   
-/*    if(precioDescuento>120)
-    {
-        ingresosBrutos=(precioDescuento/100)*10;
-        precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
-
-        mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
-
-        document.getElementById("txtIdprecioDescuento").value=mensajeSalida;
+        porcentajeDescuento=50;
     }
     else
     {
-        document.getElementById("txtIdprecioDescuento").value=precioDescuento;
+        if(cantidadDeLamparas==5)//punto B
+        {
+            if(marcaLamparas=="ArgentinaLuz")
+            {
+                porcentajeDescuento=40;
+            }
+            else
+            {
+                porcentajeDescuento=30;
+            }
+        }
+        else
+        {
+            if(cantidadDeLamparas==4)//punto C
+            {
+                if(marcaLamparas=="ArgentinaLuz" || marcaLamparas=="FelipeLamparas")
+                {
+                    porcentajeDescuento=25;
+                }
+                else
+                {
+                    porcentajeDescuento=20;
+                }
+            }
+            else
+            {
+                if(cantidadDeLamparas==3)//punto D
+                {
+                    if(marcaLamparas=="ArgentinaLuz")
+                    {
+                        porcentajeDescuento=15;
+                    }
+                    else if(marcaLamparas=="FelipeLamparas")
+                    {
+                        porcentajeDescuento=10;
+                    }
+                    else
+                    {
+                        porcentajeDescuento=5;
+                    }
+                }
+               /* else //sin descuento en realidad no necesito esta linea si declaro antes el decuento como 0
+                {
+                    //porcentajeDescuento=0;
+                }*/
+            }
+        }
     }
-  */ 
 
-     //txtIdprecioDescuento
+//aplicacion descuento
+precioBruto=cantidadDeLamparas*35;
+descuento=((precioBruto)/100)*porcentajeDescuento;
+precioDescuento=precioBruto-descuento;
+
+//aplicacion impuesto 
+if(precioDescuento>120)
+{
+    //calculo impuesto
+    ingresosBrutos=(precioDescuento/100)*10;
+    precioMasIngresosBrutos=precioDescuento+ingresosBrutos;
+
+    //concatenacion mensaje
+    mensajeSalida=precioMasIngresosBrutos+" IIBB Usted pago "+ingresosBrutos;
+}
+else
+{   //sin impuesto
+    mensajeSalida=precioDescuento;
+}
+
+//salida
+document.getElementById("txtIdprecioDescuento").value=mensajeSalida; 
 }

@@ -13,55 +13,79 @@ var numeroIngresado;
 var mensajeSalida;
 
 
-
-
-
-
-
 function comenzar()
 {
-	numeroSecreto=Math.floor(Math.random() * 101);
+  //generar numero
+	numeroSecreto=Math.floor(Math.random() * 101)+1;
+  numeroSecreto=parseInt(numeroSecreto);
+
+  //inicio contador
   contadorIntentos=0;
   
-  alert("comienza el juego");
+  //salida opcional
+  alert("comienza el juego");//no lo pidieron
   //Genero el número RANDOM entre 1 y 100
 	 
-		//alert(numeroSecreto );
-	
-
+	//alert(numeroSecreto );
 }
 
 function verificar()
-{
+{ 
+  //toma datos y parseo
   numeroIngresado=document.getElementById("txtIdNumero").value;
-  contadorIntentos+=1
+  numeroIngresado=parseInt(numeroIngresado);
 
+  //aumento contador y salida del mismo
+  contadorIntentos+=1;
+  document.getElementById("txtIdIntentos").value=contadorIntentos;
+
+if(numeroIngresado>100 || numeroIngresado<1)//input invalido
+{
+  mensajeSalida="numero no valido";
+}
+else
+{
+  if(numeroIngresado==numeroSecreto)
+  {
+    mensajeSalida="Usted es un ganador!!! y en solo "+ contadorIntentos +" intentos";
+  }
+  else
+  {
+    if(numeroIngresado>numeroSecreto)
+    {
+      mensajeSalida="se pasó…";
+    }
+    else//menor
+    {
+      mensajeSalida="falta…";
+    }
+  }
+}
+  //salida
+alert(mensajeSalida);
+}
+/*
+//ganador
   if(numeroIngresado==numeroSecreto)
   {
     mensajeSalida="Usted es un ganador!!! y en solo "+ contadorIntentos +" intentos";
     
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-    
-    alert(mensajeSalida)
     //contador=0
     //numeroSecreto=Math.floor(Math.random() * 101);
   }
+
+//input invalido
+  else if(numeroIngresado>100 || numeroIngresado<1)//no lo pidieron
+  {
+	mensajeSalida="numero no valido";
+  }
+
+//tibio caliente frio
   else if(numeroIngresado>numeroSecreto)
   {
-    mensajeSalida="se pasó…"
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-
-    alert(mensajeSalida);
+    	mensajeSalida="se pasó…";
   }
 	else
   {
-    mensajeSalida= "falta…"
-
-    document.getElementById("txtIdIntentos").value=contadorIntentos;
-    alert(mensajeSalida);
-
-  }
-	
-}
+    	mensajeSalida="falta…";
+  }*/
